@@ -1,5 +1,7 @@
 ﻿using System;
 using Hangfire;
+using Hangfire.Common;
+using Hangfire.Server;
 using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

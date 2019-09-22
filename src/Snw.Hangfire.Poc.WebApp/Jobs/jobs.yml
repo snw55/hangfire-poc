@@ -1,0 +1,9 @@
+jobs:
+
+- powershell: test.ps1
+  name: Test job A
+  schedule: cron(*/1 * * * *)
+
+- powershell: test.ps1
+  name: Test job B
+  schedule: cron(*/2 * * * *)
