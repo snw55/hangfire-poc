@@ -9,9 +9,27 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Hangfire.Core" Version="1.7.0" />
-    <PackageReference Include="Hangfire.SqlServer" Version="1.7.0" />
-    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.0" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.6" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.6" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.6" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Snw.Hangfire.Poc.Scheduler\Snw.Hangfire.Poc.Scheduler.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="Jobs\jobs.yml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Jobs\test.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Jobs\test2.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

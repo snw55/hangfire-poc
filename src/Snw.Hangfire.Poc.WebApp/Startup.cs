@@ -47,7 +47,8 @@ namespace Snw.Hangfire.Poc.WebApp
                 }));
 
             // Add the processing server as IHostedService
-            services.AddHangfireServer();
+            services.AddHangfireServer()
+                .AddScheduler();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -70,7 +71,10 @@ namespace Snw.Hangfire.Poc.WebApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseHangfireDashboard();
+            GlobalConfiguration.Configuration.UseExtensionsJobActivator(app.ApplicationServices);
+            app.UseHangfireDashboard()
+                .UseScheduler();
+
             backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
             app.UseMvc(routes =>

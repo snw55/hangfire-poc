@@ -2,8 +2,8 @@
 {
     public interface ISchedulerBuilder
     {
-        string Schedule { get; }
+        ISchedulerBuilder SetCron(string cron);
 
-        ISchedulerBuilder SetSchedule(string cron);
+        SchedulerConfiguration BuildSchedule();
     }
 }
