@@ -14,22 +14,22 @@ namespace Microsoft.Extensions.DependencyInjection
                 throw new ArgumentNullException(nameof(services));
 
             services.AddTransient<ISchedulerJob, YamlSchedulerJob>();
-            services.AddTransient<ISchedulerBuilder, SchedulerBuilder>();
+            services.AddTransient<ISchedulerConfigurationBuilder, SchedulerConfigurationBuilder>();
 
             return services;
         }
 
-        public static IApplicationBuilder UseScheduler(this IApplicationBuilder app, Action<ISchedulerBuilder> builderConfiguration = null)
+        public static IApplicationBuilder UseScheduler(this IApplicationBuilder app, Action<ISchedulerConfigurationBuilder> builderConfiguration = null)
         {
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
 
-            var builder = app.ApplicationServices.GetRequiredService<ISchedulerBuilder>();
-            (builderConfiguration ?? SchedulerBuilder.DefaultConfiguration).Invoke(builder);
+            var builder = app.ApplicationServices.GetRequiredService<ISchedulerConfigurationBuilder>();
+            builderConfiguration?.Invoke(builder);
 
-            var scheduleConfiguration = builder.BuildSchedule();
+            var schedulerConfiguration = builder.BuildConfiguration();
 
-            RecurringJob.AddOrUpdate<ISchedulerJob>(nameof(ISchedulerJob), job => job.ScheduleJobs(), scheduleConfiguration.Cron);
+            RecurringJob.AddOrUpdate<ISchedulerJob>(job => job.ScheduleJobs(), schedulerConfiguration.Cron);
 
             return app;
         }
