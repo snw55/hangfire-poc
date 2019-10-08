@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snw.Hangfire.Poc.WebApp", "src\Snw.Hangfire.Poc.WebApp\Snw.Hangfire.Poc.WebApp.csproj", "{36E6028C-E7D3-4E20-81FF-111B7BC4392E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snw.Hangfire.Poc.WebApp", "src\Snw.Hangfire.Poc.WebApp\Snw.Hangfire.Poc.WebApp.csproj", "{36E6028C-E7D3-4E20-81FF-111B7BC4392E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snw.Hangfire.Poc.Scheduler", "src\Snw.Hangfire.Poc.Scheduler\Snw.Hangfire.Poc.Scheduler.csproj", "{579D4B84-F5E6-4126-BFB0-20095ED1ADA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snw.Hangfire.Poc.Scheduler", "src\Snw.Hangfire.Poc.Scheduler\Snw.Hangfire.Poc.Scheduler.csproj", "{579D4B84-F5E6-4126-BFB0-20095ED1ADA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3B00D837-1A77-41ED-8A3D-8CDDC9F22920}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A56F470C-33F9-4131-A26F-33DE10F5CA89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snw.Hangfire.Poc.Scheduler.UnitTests", "tests\Snw.Hangfire.Poc.Scheduler.UnitTests\Snw.Hangfire.Poc.Scheduler.UnitTests.csproj", "{FC7D4B6B-28FE-4B42-8242-C5122DFE1C1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,18 @@ Global
 		{579D4B84-F5E6-4126-BFB0-20095ED1ADA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{579D4B84-F5E6-4126-BFB0-20095ED1ADA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{579D4B84-F5E6-4126-BFB0-20095ED1ADA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7D4B6B-28FE-4B42-8242-C5122DFE1C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7D4B6B-28FE-4B42-8242-C5122DFE1C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7D4B6B-28FE-4B42-8242-C5122DFE1C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7D4B6B-28FE-4B42-8242-C5122DFE1C1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36E6028C-E7D3-4E20-81FF-111B7BC4392E} = {3B00D837-1A77-41ED-8A3D-8CDDC9F22920}
+		{579D4B84-F5E6-4126-BFB0-20095ED1ADA4} = {3B00D837-1A77-41ED-8A3D-8CDDC9F22920}
+		{FC7D4B6B-28FE-4B42-8242-C5122DFE1C1F} = {A56F470C-33F9-4131-A26F-33DE10F5CA89}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE7F5BCB-280E-4057-8F87-9D41C39A2342}

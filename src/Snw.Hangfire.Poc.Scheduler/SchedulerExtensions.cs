@@ -13,7 +13,8 @@ namespace Microsoft.Extensions.DependencyInjection
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
 
-            services.AddTransient<ISchedulerJob, YamlSchedulerJob>();
+            services.AddTransient<IJobSource, YamlJobSource>();
+            services.AddTransient<ISchedulerJob, SchedulerJob>();
             services.AddTransient<ISchedulerConfigurationBuilder, SchedulerConfigurationBuilder>();
 
             return services;
@@ -29,7 +30,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             var schedulerConfiguration = builder.BuildConfiguration();
 
-            RecurringJob.AddOrUpdate<ISchedulerJob>(job => job.ScheduleJobs(), schedulerConfiguration.Cron);
+            RecurringJob.AddOrUpdate<ISchedulerJob>(job => job.ScheduleJobsAsync(null), schedulerConfiguration.Cron);
 
             return app;
         }
